@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="main">
+	<h1>[[ ${title} ]]</h1>
+	<form th:action="@{/photos/upload}" enctype="multipart/form-data" th:object="${uploadImageForm}" method="post">
+		<ul>
+			<li th:each="error : ${#fields.detailedErrors()}">
+				<span th:text="${error.message}"></span>
+			</li>
+		</ul>
+		<p>
+			<label for="shotAt">撮影日</label>
+			<input type="date" id="date" th:field="*{date}">
+		</p>
+		<p>
+			<label for="image">画像</label>
+			<input type="file" id="images" th:field="*{images}" multiple>
+		</p>
+		<p>
+			<input type="submit" value="アップロード"> 
+		</p>
+	</form>
+</div>
+</html>

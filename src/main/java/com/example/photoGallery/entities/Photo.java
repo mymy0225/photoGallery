@@ -29,15 +29,15 @@ public class Photo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(name = "image", nullable = false)
 	private String image;
 	
 	@Column(name = "shotat", nullable = false)
-	private LocalDate shotAt;
+	private LocalDate shotat;
 	
-	@Column(name = "createdat", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "createdat", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime createdat;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
